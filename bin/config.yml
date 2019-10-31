@@ -1,0 +1,19 @@
+#Message sent to console when command cannot be run by console
+console_error_message: '&8[7c*&8] &cYou are unable to execute this command!'
+
+#No permission message
+no_perm_message: '&cYou do not have permission to execute this command!'
+
+#Hello message
+hello_message: '&aHi!'
+
+#First join message
+first_join_message: '&a<player> &7has joined the server for the first time!'
+
+#General join message
+join_message: '&e<player> &7 has joined the server!'
+
+#Fly Command
+FlyCommand:
+  flying_enabled: '&8[&a*&8] &7You have &aenabled &7fly!'
+  flying_disabled: '&8[&c*&8] &7You have &cdisabled &7fly!'

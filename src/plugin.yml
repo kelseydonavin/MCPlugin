@@ -1,0 +1,13 @@
+name: StatPlugin
+version: 1.0.3
+author: kelseyum
+main: me.kelseyum.statplugin.Main
+description: Custom Plugin for WSU Capstone
+
+
+commands:
+  fly: 
+    description: This allows player to fly.
+  hello: 
+    aliases: [hi]
+    description: This is the hello command!
