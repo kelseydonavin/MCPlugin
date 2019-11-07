@@ -1,5 +1,5 @@
 name: StatPlugin
-version: 1.0.3
+version: 1.0.6
 author: kelseyum
 main: me.kelseyum.statplugin.Main
 description: Custom Plugin for WSU Capstone
@@ -11,3 +11,5 @@ commands:
   hello: 
     aliases: [hi]
     description: This is the hello command!
+  day:
+    description: Sets time to day(1000).

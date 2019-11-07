@@ -17,3 +17,16 @@ join_message: '&e<player> &7 has joined the server!'
 FlyCommand:
   flying_enabled: '&8[&a*&8] &7You have &aenabled &7fly!'
   flying_disabled: '&8[&c*&8] &7You have &cdisabled &7fly!'
+
+#Day Command
+DayCommand:
+  day_message: '&e<player> &7 set time to day!'
+  
+#Message to killer
+killer_message: '&8[&a*&8] &7You have killed &6<player>!'
+ 
+#Message to victim
+victim_message: '&8[&c*&8] &7You have been killed by &c<player>!'
+ 
+#Player suicide message
+suicide_message: '&8[&c*&8] &7You have killed &cyourself!'
