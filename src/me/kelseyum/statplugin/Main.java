@@ -1,6 +1,11 @@
 package me.kelseyum.statplugin;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.bukkit.plugin.java.JavaPlugin;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
 import me.kelseyum.statplugin.commands.DayCommand;
 import me.kelseyum.statplugin.commands.FlyCommand;
@@ -19,6 +24,8 @@ import me.kelseyum.statplugin.listeners.PlayerShearListener;
 // import me.kelseyum.statplugin.ui.TestUI;
 
 public class Main extends JavaPlugin {
+	
+	public JSONArray statList = new JSONArray();;
 
 	@Override
 	public void onEnable() {
@@ -40,13 +47,5 @@ public class Main extends JavaPlugin {
 		new FlyCommand(this);
 		new HelloCommand(this);
 		new DayCommand(this);
-		
-		
-		
-		// TODO: temporary, testing GUI aspect
-		// new TestCommand(this);
-		// new InventoryClickListener(this);
-		// TestUI.initialize();
-
 	}
 }
