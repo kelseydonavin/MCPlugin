@@ -29,7 +29,7 @@ public class AnimalTameListener implements Listener {
 		
 		JSONObject pluginStats = new JSONObject();
 		pluginStats.put("Player", p.getName());
-		pluginStats.put("AnimalMated", a.getType());
+		pluginStats.put("AnimalTamed", a.getType());
 		
 		plugin.statList.add(pluginStats);
 		
