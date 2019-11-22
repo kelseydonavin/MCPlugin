@@ -1,20 +1,15 @@
 package me.kelseyum.statplugin;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
 
 import me.kelseyum.statplugin.commands.DayCommand;
 import me.kelseyum.statplugin.commands.FlyCommand;
 import me.kelseyum.statplugin.commands.HelloCommand;
+import me.kelseyum.statplugin.database.SQLdatabase;
 import me.kelseyum.statplugin.listeners.AnimalTameListener;
 import me.kelseyum.statplugin.listeners.BlockBreakListener;
 import me.kelseyum.statplugin.listeners.BlockPlaceListener;
-// import me.kelseyum.statplugin.commands.TestCommand;
-// import me.kelseyum.statplugin.listeners.InventoryClickListener;
 import me.kelseyum.statplugin.listeners.JoinListeners;
 import me.kelseyum.statplugin.listeners.PlayerAdvancementDoneListener;
 import me.kelseyum.statplugin.listeners.PlayerBreedListener;
@@ -32,6 +27,9 @@ public class Main extends JavaPlugin {
 		// Every time plugin loads up, it will save everything you have in the config
 		saveDefaultConfig();
 		
+		SQLdatabase sql = new SQLdatabase();
+		sql.connect();
+		
 		// Register listener classes
 		new JoinListeners(this);
 		new PlayerDeathListener(this);
@@ -48,4 +46,6 @@ public class Main extends JavaPlugin {
 		new HelloCommand(this);
 		new DayCommand(this);
 	}
+	
+	//add onDisable
 }

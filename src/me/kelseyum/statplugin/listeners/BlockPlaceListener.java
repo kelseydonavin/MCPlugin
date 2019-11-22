@@ -35,11 +35,12 @@ public class BlockPlaceListener implements Listener {
 		
 		plugin.statList.add(pluginStats);
 		
+		/*
 		try (FileWriter file = new FileWriter("StatPluginOutput.json", true)) {
 			file.write(plugin.statList.toJSONString());
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-		}
+		}*/
 	}
 }
