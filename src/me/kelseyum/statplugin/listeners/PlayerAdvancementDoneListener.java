@@ -40,8 +40,8 @@ public class PlayerAdvancementDoneListener implements Listener{
 		if (advanc.indexOf("story") != -1) {
 			if (advanc.indexOf("enter_the_end") != -1) {
 				// console.sendMessage("Player: " + p.getName() + ", Advancement: " + advanc.replace("story/", ""));
-				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_killed, advancement, block_type, number_blocks, number_trades)"
-						+ " VALUES ('" + p.getName() + "', NULL, NULL, '" + advanc.replace("story/", "") + "', NULL, NULL, NULL);";
+				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
+						+ " VALUES ('" + p.getName() + "', NULL, NULL, NULL, NULL, '" + advanc.replace("story/", "") + "', NULL, NULL, NULL);";
 				
 				SQLdatabase sql = new SQLdatabase();
 				Connection con;
@@ -66,8 +66,8 @@ public class PlayerAdvancementDoneListener implements Listener{
 		if (advanc.indexOf("end") != -1) {
 			if (advanc.indexOf("kill_dragon") != -1) {
 				// console.sendMessage("Player: " + p.getName() + ", Advancement: " + advanc.replace("end/", ""));
-				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_killed, advancement, block_type, number_blocks, number_trades)"
-						+ " VALUES ('" + p.getName() + "', NULL, NULL, '" + advanc.replace("story/", "") + "', NULL, NULL, NULL);";
+				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
+						+ " VALUES ('" + p.getName() + "', NULL, NULL, NULL, NULL, '" + advanc.replace("story/", "") + "', NULL, NULL, NULL);";
 				
 				SQLdatabase sql = new SQLdatabase();
 				Connection con;

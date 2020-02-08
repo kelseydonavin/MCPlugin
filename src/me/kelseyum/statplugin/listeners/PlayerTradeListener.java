@@ -33,9 +33,9 @@ static ConsoleCommandSender console = Bukkit.getConsoleSender();
 		String p = e.getMerchant().getTrader().getName();
 		
 		if (e.getMerchant().isTrading() == true) {
-			console.sendMessage("Traded");
-			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_killed, advancement, block_type, number_blocks, number_trades)"
-					+ " VALUES ('" + p + "', NULL, NULL , NULL, NULL, NULL, 1);";
+			// console.sendMessage("Traded");
+			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
+					+ " VALUES ('" + p + "', NULL, NULL, NULL, NULL , NULL, NULL, NULL, 1);";
 			SQLdatabase sql = new SQLdatabase();
 			Connection con;
 			con = sql.connect();

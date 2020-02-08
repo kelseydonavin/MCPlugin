@@ -37,8 +37,8 @@ static ConsoleCommandSender console = Bukkit.getConsoleSender();
 		if ((b.getType() == Material.DIAMOND_ORE) || (b.getType() == Material.EMERALD_ORE)){
 			//console.sendMessage("Player: " + p.getName() + ", Block Type: " + b.getType().toString());
 
-			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_join, player_killed, advancement, block_type, number_blocks)"
-			+ " VALUES ('" + p.getName() + "', NULL, NULL , NULL, '" + b.getType().toString() + "', 1);";
+			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks)"
+			+ " VALUES ('" + p.getName() + "', NULL, NULL, NULL, NULL , NULL, '" + b.getType().toString() + "', 1);";
 			
 			SQLdatabase sql = new SQLdatabase();
 			Connection con;

@@ -12,6 +12,9 @@ import me.kelseyum.statplugin.listeners.BlockBreakListener;
 import me.kelseyum.statplugin.listeners.PlayerAdvancementDoneListener;
 // import me.kelseyum.statplugin.ui.TestUI;
 import me.kelseyum.statplugin.listeners.PlayerDeathListener;
+import me.kelseyum.statplugin.listeners.PlayerJoinListener;
+import me.kelseyum.statplugin.listeners.PlayerQuitListener;
+import me.kelseyum.statplugin.listeners.PlayerTradeListener;
 
 public class Main extends JavaPlugin {
 
@@ -29,10 +32,12 @@ public class Main extends JavaPlugin {
 		Connection con;
 		con = sql.connect();
 				
-		tableName = "friday";
+		tableName = "WSUCon1";
 		String sqlExecutable = "CREATE TABLE IF NOT EXISTS " + tableName + 
-		"(Time TEXT,"
-		+ "Player_Name TEXT NOT NULL, "
+		"(Player_Name TEXT NOT NULL,"
+		+ "Player_Time TEXT,"
+		+ "Player_Join TEXT,"
+		+ "Player_Leave TEXT,"
 		+ "Player_Killed TEXT,"
 		+ "Advancement TEXT,"
 		+ "Block_Type TEXT,"
@@ -56,7 +61,7 @@ public class Main extends JavaPlugin {
 		// new DatasbaseSetup(this);
 
 		// Register listener classes
-		// new JoinListeners(this);
+		new PlayerJoinListener(this);
 		new PlayerDeathListener(this);
 		// new PlayerBreedListener(this);
 		// new PlayerLevelChangeListener(this);
@@ -64,8 +69,10 @@ public class Main extends JavaPlugin {
 		// new AnimalTameListener(this);
 		new BlockBreakListener(this);
 		// new BlockPlaceListener(this);
-		// new PlayerShearListener(this);
-
+		// new PlayerShearListener(this);	
+		new PlayerTradeListener(this);
+		new PlayerQuitListener(this);
+		
 		// Register command classes
 		// new FlyCommand(this);
 		// new HelloCommand(this);
