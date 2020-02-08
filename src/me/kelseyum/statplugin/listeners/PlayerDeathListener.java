@@ -3,6 +3,8 @@ package me.kelseyum.statplugin.listeners;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.advancement.Advancement;
@@ -34,6 +36,10 @@ public class PlayerDeathListener implements Listener {
 
 			String sqlExecutable;
 			Statement stmt = null;
+			
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+			LocalDateTime now = LocalDateTime.now();
+			
 
 			if (p != killer) {
 				killer.sendMessage(Utils
@@ -41,8 +47,8 @@ public class PlayerDeathListener implements Listener {
 				p.sendMessage(Utils.chat(
 						plugin.getConfig().getString("victim_message").replace("<player>", killer.getDisplayName())));
 				
-				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
-						+ " VALUES ('" + killer.getName() + "', NULL, NULL, NULL, '" + p.getName() + "', NULL, NULL, NULL, NULL);";
+				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
+						+ " VALUES ('" + killer.getName() + "', '" + dtf.format(now) +"', NULL, NULL, '" + p.getName() + "', NULL, NULL, NULL, NULL);";
 				
 				SQLdatabase sql = new SQLdatabase();
 				Connection con;

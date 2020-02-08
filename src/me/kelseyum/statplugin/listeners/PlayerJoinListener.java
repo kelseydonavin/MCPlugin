@@ -3,6 +3,8 @@ package me.kelseyum.statplugin.listeners;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -28,6 +30,8 @@ public class PlayerJoinListener implements Listener{
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
 		
 		if (!p.hasPlayedBefore()) {
 			Bukkit.broadcastMessage(Utils.chat(plugin.getConfig().getString("first_join_message").replace("<player>", p.getName())));
@@ -36,8 +40,8 @@ public class PlayerJoinListener implements Listener{
 			Bukkit.broadcastMessage(Utils.chat(plugin.getConfig().getString("join_message").replace("<player>", p.getName())));
 		}
 		
-		String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
-				+ " VALUES ('" + p.getName() + "', NULL, TRUE, NULL, NULL , NULL, NULL, NULL, NULL);";
+		String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
+				+ " VALUES ('" + p.getName() + "','" + dtf.format(now) +"', TRUE, NULL, NULL , NULL, NULL, NULL, NULL);";
 		SQLdatabase sql = new SQLdatabase();
 		Connection con;
 		con = sql.connect();

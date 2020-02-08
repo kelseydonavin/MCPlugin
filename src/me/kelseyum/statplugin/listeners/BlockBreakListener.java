@@ -3,6 +3,8 @@ package me.kelseyum.statplugin.listeners;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -34,11 +36,15 @@ static ConsoleCommandSender console = Bukkit.getConsoleSender();
 		Player p = e.getPlayer();
 		Block b = e.getBlock();
 		
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+		LocalDateTime now = LocalDateTime.now();
+		
+		
 		if ((b.getType() == Material.DIAMOND_ORE) || (b.getType() == Material.EMERALD_ORE)){
 			//console.sendMessage("Player: " + p.getName() + ", Block Type: " + b.getType().toString());
 
-			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_time, player_join, player_leave, player_killed, advancement, block_type, number_blocks)"
-			+ " VALUES ('" + p.getName() + "', NULL, NULL, NULL, NULL , NULL, '" + b.getType().toString() + "', 1);";
+			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_join, player_leave, player_killed, advancement, block_type, number_blocks)"
+			+ " VALUES ('" + p.getName() + "','" + dtf.format(now) + "', NULL, NULL, NULL , NULL, '" + b.getType().toString() + "', 1);";
 			
 			SQLdatabase sql = new SQLdatabase();
 			Connection con;

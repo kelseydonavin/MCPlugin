@@ -32,10 +32,10 @@ public class Main extends JavaPlugin {
 		Connection con;
 		con = sql.connect();
 				
-		tableName = "WSUCon1";
+		tableName = "wsu";
 		String sqlExecutable = "CREATE TABLE IF NOT EXISTS " + tableName + 
 		"(Player_Name TEXT NOT NULL,"
-		+ "Player_Time TEXT,"
+		+ "Time TEXT,"
 		+ "Player_Join TEXT,"
 		+ "Player_Leave TEXT,"
 		+ "Player_Killed TEXT,"
