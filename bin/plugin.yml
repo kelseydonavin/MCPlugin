@@ -1,8 +1,9 @@
-name: StatPlugin
-version: 1.1.0
-author: kelseyum
+name: Paddle
+version: 2.0.0
+author: kelsey_404
 main: me.kelseyum.statplugin.Main
 description: Custom Plugin for WSU Capstone
+database: true
 
 
 commands:

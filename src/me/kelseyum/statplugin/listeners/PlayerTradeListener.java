@@ -5,41 +5,37 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.block.Block;
 import org.bukkit.command.ConsoleCommandSender;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.inventory.TradeSelectEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
 
 import me.kelseyum.statplugin.Main;
 import me.kelseyum.statplugin.database.SQLdatabase;
 
-public class BlockBreakListener implements Listener {
+public class PlayerTradeListener implements Listener {
 
 private static Main plugin;
-
 static ConsoleCommandSender console = Bukkit.getConsoleSender();
+
 	
-	public BlockBreakListener(Main plugin) {
+	public PlayerTradeListener(Main plugin) {
 		this.plugin = plugin;
 		
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@EventHandler
-	public void onBlockBreak(BlockBreakEvent e) {
-		Player p = e.getPlayer();
-		Block b = e.getBlock();
+	public void onTradeSelectEvent(TradeSelectEvent e) {
+		String p = e.getMerchant().getTrader().getName();
 		
-		if ((b.getType() == Material.DIAMOND_ORE) || (b.getType() == Material.EMERALD_ORE)){
-			//console.sendMessage("Player: " + p.getName() + ", Block Type: " + b.getType().toString());
-
-			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, player_join, player_killed, advancement, block_type, number_blocks)"
-			+ " VALUES ('" + p.getName() + "', NULL, NULL , NULL, '" + b.getType().toString() + "', 1);";
-			
+		if (e.getMerchant().isTrading() == true) {
+			console.sendMessage("Traded");
+			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_killed, advancement, block_type, number_blocks, number_trades)"
+					+ " VALUES ('" + p + "', NULL, NULL , NULL, NULL, NULL, 1);";
 			SQLdatabase sql = new SQLdatabase();
 			Connection con;
 			con = sql.connect();
@@ -57,9 +53,8 @@ static ConsoleCommandSender console = Bukkit.getConsoleSender();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
-			}
-		}	
-
+			}			
+					
+		}
 	}
 }
-

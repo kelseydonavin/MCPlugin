@@ -4,5 +4,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/kelseydonavin/Desktop/Plugin/spigot-1.14.4.jar"/>
 	<classpathentry kind="lib" path="/Users/kelseydonavin/Desktop/Plugin/postgresql-42.2.8.jar" sourcepath="/Users/kelseydonavin/.m2/repository/org/postgresql/postgresql/42.2.8/postgresql-42.2.8-sources.jar"/>
+	<classpathentry kind="lib" path="lib/postgresql-42.2.9.jar"/>
+	<classpathentry kind="lib" path="/Users/kelseydonavin/Downloads/postgresql-42.2.9.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

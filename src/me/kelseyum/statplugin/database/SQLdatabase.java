@@ -11,7 +11,7 @@ import org.bukkit.command.ConsoleCommandSender;
 
 public class SQLdatabase {
 	
-	public static String url = "jdbc:postgresql://localhost:5432/Minecraft";
+	public static String url = "jdbc:postgresql://localhost:5432/postgres";
 	// public static String host = "localhost";
 	// public static String port = "5432";
 	// public static String database = "Minecraft";
@@ -27,11 +27,12 @@ public class SQLdatabase {
 		con = null;
 		
 		if (!isConnected()) {
-			/*try {
+			
+			try {
 		        Class.forName("org.postgresql.Driver");
 		    } catch (ClassNotFoundException e) {
 		        System.out.println("Class not found " + e);
-		    }*/
+		    }
 			try {
 				con = DriverManager.getConnection(url, username, password);
 				console.sendMessage("Connection was established!");
