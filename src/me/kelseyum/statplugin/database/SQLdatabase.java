@@ -11,7 +11,7 @@ import org.bukkit.command.ConsoleCommandSender;
 
 public class SQLdatabase {
 	
-	public static String url = "jdbc:postgresql://localhost:5432/postgres";
+	public static String url = "jdbc:postgresql://localhost:5432/Minecraft";
 	// public static String host = "localhost";
 	// public static String port = "5432";
 	// public static String database = "Minecraft";

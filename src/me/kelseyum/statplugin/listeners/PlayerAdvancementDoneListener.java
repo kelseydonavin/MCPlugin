@@ -73,7 +73,7 @@ public class PlayerAdvancementDoneListener implements Listener{
 			if (advanc.indexOf("kill_dragon") != -1) {
 				// console.sendMessage("Player: " + p.getName() + ", Advancement: " + advanc.replace("end/", ""));
 				sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_join, player_leave, player_killed, advancement, block_type, number_blocks, number_trades)"
-						+ " VALUES ('" + p.getName() + "', '" + dtf.format(now) + "', NULL, NULL, NULL, '" + advanc.replace("story/", "") + "', NULL, NULL, NULL);";
+						+ " VALUES ('" + p.getName() + "', '" + dtf.format(now) + "', NULL, NULL, NULL, '" + advanc.replace("end/", "") + "', NULL, NULL, NULL);";
 				
 				SQLdatabase sql = new SQLdatabase();
 				Connection con;

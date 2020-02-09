@@ -32,7 +32,7 @@ public class Main extends JavaPlugin {
 		Connection con;
 		con = sql.connect();
 				
-		tableName = "wsu";
+		tableName = "AlkiTester";
 		String sqlExecutable = "CREATE TABLE IF NOT EXISTS " + tableName + 
 		"(Player_Name TEXT NOT NULL,"
 		+ "Time TEXT,"
