@@ -34,13 +34,13 @@ public class Main extends JavaPlugin {
 				
 		tableName = "AlkiTester";
 		String sqlExecutable = "CREATE TABLE IF NOT EXISTS " + tableName + 
-		"(Player_Name TEXT NOT NULL,"
-		+ "Time TEXT,"
-		+ "Player_Join TEXT,"
-		+ "Player_Leave TEXT,"
-		+ "Player_Killed TEXT,"
-		+ "Advancement TEXT,"
-		+ "Block_Type TEXT,"
+		"(Player_Name VARCHAR(100) NOT NULL,"
+		+ "Time TIMESTAMP,"
+		+ "Player_Join VARCHAR(5),"
+		+ "Player_Leave VARCHAR(5),"
+		+ "Player_Killed VARCHAR(100),"
+		+ "Advancement VARCHAR(300),"
+		+ "Block_Type VARCHAR(100),"
 		+ "Number_Blocks INT,"
 		+ "Number_Trades INT);";
 		
