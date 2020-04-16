@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class Firebase {
 
-    private static final String DATABASE_URL = "YOUR_DB_URL";
+    private static final String DATABASE_URL = "https://paddle-82b81.firebaseio.com/test1/eUwUEBq9GAX13k5Olnfq";
     private FirebaseDatabase firebaseDatabase;
 
     public Firebase() {

@@ -7,7 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
-public class Database extends JavaPlugin {
+public class DatabasewithInput extends JavaPlugin {
 	
 	Connection connection;
 	String host, database, username, password;
