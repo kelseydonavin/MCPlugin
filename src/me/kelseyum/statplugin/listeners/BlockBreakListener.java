@@ -46,14 +46,14 @@ static ConsoleCommandSender console = Bukkit.getConsoleSender();
 			String sqlExecutable = "INSERT INTO " + plugin.tableName + " (player_name, time, player_join, player_leave, player_killed, advancement, block_type, number_blocks)"
 			+ " VALUES ('" + p.getName() + "','" + dtf.format(now) + "', NULL, NULL, NULL , NULL, '" + b.getType().toString() + "', 1);";
 			
-			SQLdatabase sql = new SQLdatabase();
-			Connection con;
-			con = sql.connect();
+			// SQLdatabase sql = new SQLdatabase();
+			// Connection con;
+			// con = sql.connect();
 			Statement stmt;
 			stmt = null;
 			
 			try {
-				stmt = con.createStatement();
+				stmt = plugin.con.createStatement();
 			} catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
